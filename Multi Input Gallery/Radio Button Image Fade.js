@@ -1,3 +1,36 @@
+class RadioSlideshow{
+	constructor(slideshow_name, radio_button_group_name){
+		this._radio_button_group_id = "#" + $w(radio_button_group_name).id;
+		this._slideshow_id = "#" + $w(slideshow_name).id;
+	}
+
+	SwitchSlides(activeNumber) {
+		$w(this._slideshow_id).changeSlide(activeNumber);
+	}
+
+	get_radio_button_group_id(){
+		return this._radio_button_group_id;
+	}
+
+	get_slideshow_id(){
+		return this._slideshow_id;
+	}
+}
+
+$w.onReady(function () {
+
+//New radio button group controlled slideshow
+let control_panel_slide_group = new RadioSlideshow("#controlPanelSlideshow", "#controlPanelRadio");
+
+control_panel_slide_group.SwitchSlides(3);
+
+});
+
+
+
+
+
+
 var radioIdToGet = "#" + "controlPanelRadio";
 var slideshowIdToGet = "#" + "controlPanelSlideshow";
 var radioId;
