@@ -14,38 +14,38 @@ class Slider_Slideshow {
 
 	_set_slider_max(_slider_max) {
 		this._slider_max_int = parseInt(_slider_max, 10);
-		console.log("\nSlider Max = " + this._slider_max_int);
 		$w(this._slider_id).max = (this._slider_max_int - 1);
 	}
 
 	_set_slider_min(_slider_min) {
 		this._slider_min_int = parseInt(_slider_min, 10);
-		console.log("\nSlider Min = " + this._slider_min_int);
 		$w(this._slider_id).min = this._slider_min_int;
 	}
 
 	_init_slider_length() {
-		this._slides_array = $w(this._slideshow_id).slides
+		this._slides_array = $w(this._slideshow_id).slides;
 		this._slideshow_length = this._slides_array.length;
-		//this._first_slide_value = this._slides_array[0].value;
-		console.log("\nSlider Length = " + this._slideshow_length + " " + this._first_slide_value + " " + this._slideshow_id);
-		//this._set_slider_min(this._first_slide_value);
-		this._set_slider_min(0);
+		this._slideshow_min_value = 0;
+
+		this._set_slider_min(this._slideshow_min_value);
 		this._set_slider_max(this._slideshow_length);
+
+		if (this._debug_bool) { console.log(this._slideshow_id + " has a minimum value of " + this._slideshow_min_value + " and a maximum value of " + this._slideshow_length + "\n"); }
 	}
 
 	_switch_slide(_new_slide_value) {
-		$w(this._slideshow_id).changeSlide(_new_slide_value);
+		if (this._debug_bool) { console.log(this._slideshow_id + " had a value of " + $w(this._slideshow_id).currentIndex + " which changed to " + _new_slide_value + "\n"); }
 
-		if (this._debug_bool) { //If debugging is enabled, print out input variable states
-			this._slider_console_debug();
-			console.log("\n");
-		}
+		$w(this._slideshow_id).changeSlide(_new_slide_value);
 	}
 
 	update_current_slider_value() {
+		if (this._debug_bool) { this._update_current_slider_value_logger = (this._slider_id + " had a value of " + this._current_slider_value); }
+
 		this._current_slider_value = $w(this._slider_id).value;
 		this._current_slider_value = parseInt(this._current_slider_value, 10);
+
+		if (this._debug_bool) { console.log(this._update_current_slider_value_logger + " which changed to " + this._current_slider_value + "\n"); } //If debugging is enabled, print out input variable states
 
 		//Update current slide to new slide
 		this._switch_slide(this._current_slider_value);
@@ -66,10 +66,6 @@ class Slider_Slideshow {
 	get_slideshow_id() {
 		return this._slideshow_id;
 	}
-
-	_slider_console_debug() {
-		console.log(this._slider_id + " changed to value of " + this._current_slider_value + "\n");
-	}
 }
 
 //Place object variables here
@@ -77,7 +73,7 @@ var heat_press_slide_group;
 
 //Construct objects here
 $w.onReady(function () {
-	//New radio button group controlled slideshow
+	//New slider controlled slideshow
 	heat_press_slide_group = new Slider_Slideshow("#heatPressSlideshow", "#heatPressSlider", true, 0, 0);
 });
 
