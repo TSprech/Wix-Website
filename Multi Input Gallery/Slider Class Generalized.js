@@ -71,15 +71,23 @@ class Slider_Slideshow {
 }
 
 //Place object variables here
-var heat_press_slide_group;
+var example_variable_name_here; //Name your slider controlled slideshow object variable here
 
 //Construct objects here
 $w.onReady(function () {
+	/*Change the following parameters to suite your needs
+	example_variable_name_here - must match your object variable name declared above
+	"#slideshowName" - (string) replace slideshowName with the ID of the slideshow that will be controlled
+	"#sliderName" - (string) replace sliderName with the ID of the slider that will control the slideshow
+	debugging - (true/false) boolean that toggles debugging output to the console
+	initial_slide_number - (number) slide number that the slideshow will be set to when initialized
+	initial_slider_value - (number) value that the slider will be set to when initialized*/
+
 	//New slider controlled slideshow
-	heat_press_slide_group = new Slider_Slideshow("#heatPressSlideshow", "#heatPressSlider", true, 0, 0);
+	example_variable_name_here = new Slider_Slideshow("#slideshowName", "#sliderName", debugging, initial_slide_number, initial_slider_value);
 });
 
 //Update changes to the state of inputs here
-export function heatPressSlider_change(event) {
-	heat_press_slide_group.update_current_slider_value();
+export function sliderName_change(event) { //Change "sliderName" to the name of your slider
+	example_variable_name_here.update_current_slider_value(); //Change "example_variable_name_here" to match your object variable declared above
 }
