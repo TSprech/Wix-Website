@@ -12,18 +12,25 @@ class Slider_Slideshow {
 		this._set_slider_position(initialization_slider);
 	}
 
-	_set_slider_max() {
-		return $w(this._slider_id).max;
+	_set_slider_max(_slider_max) {
+		this._slider_max_int = parseInt(_slider_max, 10);
+		console.log("\nSlider Max = " + this._slider_max_int);
+		$w(this._slider_id).max = (this._slider_max_int - 1);
 	}
 
-	_set_slider_min() {
-		return $w(this._slider_id).min;
+	_set_slider_min(_slider_min) {
+		this._slider_min_int = parseInt(_slider_min, 10);
+		console.log("\nSlider Min = " + this._slider_min_int);
+		$w(this._slider_id).min = this._slider_min_int;
 	}
 
 	_init_slider_length() {
-		this._slideshow_length = $w(this._slideshow_id).length;
-		this._first_slide_value = $w(this._slideshow_id)[0].value;
-		this._set_slider_min(this._first_slide_value);
+		this._slides_array = $w(this._slideshow_id).slides
+		this._slideshow_length = this._slides_array.length;
+		//this._first_slide_value = this._slides_array[0].value;
+		console.log("\nSlider Length = " + this._slideshow_length + " " + this._first_slide_value + " " + this._slideshow_id);
+		//this._set_slider_min(this._first_slide_value);
+		this._set_slider_min(0);
 		this._set_slider_max(this._slideshow_length);
 	}
 
