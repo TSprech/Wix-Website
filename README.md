@@ -14,8 +14,13 @@ While Wix offers a variety of interactive elements for building a site, many sit
   - [License](#license)
 
 ## Usage
-![Click "Turn on Dev Mode" under "Dev Mode" in the Wix toolbar](https://github.com/TSprech/Wix-Website/blob/README/Graphics/Enabling_Dev_Mode.png)
+![Click "Turn on Dev Mode" under "Dev Mode" in the Wix toolbar](https://github.com/TSprech/Wix-Website/blob/README/Graphics/EnablingDevMode.png)
 
+![The dev mode "Code" panel, located at the bottom of the page, is where code for each webpage will go](https://github.com/TSprech/Wix-Website/blob/README/Graphics/DevModeFlyout.png)
+
+If the code panel is not shown, click "Open" in the bottom right as shown.
+
+![The dev mode "Code" panel is not shown, click "Open" in the far right corner](https://github.com/TSprech/Wix-Website/blob/README/Graphics/DevModePanel.png)
 
 ## Classes
 
