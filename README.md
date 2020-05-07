@@ -14,7 +14,7 @@ While Wix offers a variety of interactive elements for building a site, many sit
   - [License](#license)
 
 ## Usage
-![Click "Turn on Dev Mode" under "Dev Mode" in the Wix toolbar](Wix-Website/Graphics/Enabling_Dev_Mode.png)
+![Click "Turn on Dev Mode" under "Dev Mode" in the Wix toolbar](https://github.com/TSprech/Wix-Website/blob/README/Graphics/Enabling_Dev_Mode.png)
 
 
 ## Classes
