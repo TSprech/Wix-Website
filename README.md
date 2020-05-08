@@ -3,6 +3,9 @@ While Wix offers a variety of interactive elements for building a site, many sit
 
 - [Wix Corvid Classes for Interactive Design](#wix-corvid-classes-for-interactive-design)
   - [Usage](#usage)
+    - [Enabling Dev Mode](#enabling-dev-mode)
+    - [Adding Events for Wix to Recognize](#adding-events-for-wix-to-recognize)
+    - [Implementing Classes // For Those Just Starting with JavaScript](#implementing-classes--for-those-just-starting-with-javascript)
   - [Classes](#classes)
     - [Radio Buttons](#radio-buttons)
       - [Elements Required](#elements-required)
@@ -14,6 +17,7 @@ While Wix offers a variety of interactive elements for building a site, many sit
   - [License](#license)
 
 ## Usage
+### Enabling Dev Mode
 ![Click "Turn on Dev Mode" under "Dev Mode" in the Wix toolbar](https://github.com/TSprech/Wix-Website/blob/README/Graphics/EnablingDevMode.png)
 
 ![The dev mode "Code" panel, located at the bottom of the page, is where code for each webpage will go](https://github.com/TSprech/Wix-Website/blob/README/Graphics/DevModeFlyout.png)
@@ -21,6 +25,77 @@ While Wix offers a variety of interactive elements for building a site, many sit
 If the code panel is not shown, click "Open" in the bottom right as shown.
 
 ![The dev mode "Code" panel is not shown, click "Open" in the far right corner](https://github.com/TSprech/Wix-Website/blob/README/Graphics/DevModePanel.png)
+
+### Adding Events for Wix to Recognize
+Wix has a property panel which allows for the attachment of events to function names. It is important to set each property up correctly otherwise the elements will not work. The following images show how to properly set it up.
+![The dev mode "Code" panel is not shown, click "Open" in the far right corner](https://github.com/TSprech/Wix-Website/blob/README/Graphics/EnablingPropertiesPanel.png)
+![The dev mode "Code" panel is not shown, click "Open" in the far right corner](https://github.com/TSprech/Wix-Website/blob/README/Graphics/onChangePlus.png)
+
+### Implementing Classes // For Those Just Starting with JavaScript
+1. The only thing in the Dev Panel should be an onReady function:
+```JS
+$w.onReady(function () {
+  //TODO: write your page related code here...
+
+});
+```
+
+2. Classes are copied then pasted outside the onReady function at the top of the Dev Panel:
+```JS
+class Class_Name_Here {
+  //Code for class
+}
+
+$w.onReady(function () {
+  //TODO: write your page related code here...
+
+});
+```
+
+1. A variable must be created outside the onReady function which will hold each instance of a class:
+```JS
+class Class_Name_Here {
+  //Code for class
+}
+
+var example_variable_name_here;
+
+$w.onReady(function () {
+  //TODO: write your page related code here...
+
+});
+```
+
+3. All constructors need to be instantiated inside the Wix onReady function:
+```JS
+class Class_Name_Here {
+  //Code for class
+}
+
+var example_variable_name_here;
+
+$w.onReady(function () {
+  //TODO: write your page related code here...
+  example_variable_name_here = new Class_Name("Constructors");
+});
+```
+4. Event functions are placed outside the onReady function:
+```JS
+class Class_Name_Here {
+  //Code for class
+}
+
+var example_variable_name_here;
+
+$w.onReady(function () {
+  //TODO: write your page related code here...
+  example_variable_name_here = new Class_Name("Constructors");
+});
+
+export function object_change(event) {
+    example_variable_name_here.class_update_function();
+}
+```
 
 ## Classes
 
