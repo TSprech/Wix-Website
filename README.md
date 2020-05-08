@@ -28,8 +28,22 @@ If the code panel is not shown, click "Open" in the bottom right as shown.
 
 ### Adding Events for Wix to Recognize
 Wix has a property panel which allows for the attachment of events to function names. It is important to set each property up correctly otherwise the elements will not work. The following images show how to properly set it up.
-![The dev mode "Code" panel is not shown, click "Open" in the far right corner](https://github.com/TSprech/Wix-Website/blob/README/Graphics/EnablingPropertiesPanel.png)
-![The dev mode "Code" panel is not shown, click "Open" in the far right corner](https://github.com/TSprech/Wix-Website/blob/README/Graphics/onChangePlus.png)
+
+Make sure the Properties Panel is enabled
+
+<img src="https://github.com/TSprech/Wix-Website/blob/README/Graphics/EnablingPropertiesPanel.png" alt="Ensure the Property Panel is enabled under Tools" width="346" height="330">
+
+Hover over an option in the Properties Panel and click the + sign next to it
+
+<img src="https://github.com/TSprech/Wix-Website/blob/README/Graphics/onChangePlus.png" alt="In the Properties Panel, hover over an option and click the + sign next to it" width="166" height="317">
+
+Go to the end of the selection and delete the "_1" at the end of it
+
+<img src="https://github.com/TSprech/Wix-Website/blob/README/Graphics/Delete_1.png" alt="In the Properties Panel, hover over an option and click the + sign next to it" width="166" height="317">
+
+In the end it should look like this
+
+<img src="https://github.com/TSprech/Wix-Website/blob/README/Graphics/FinalResult.png" alt="In the Properties Panel, hover over an option and click the + sign next to it" width="166" height="317">
 
 ### Implementing Classes // For Those Just Starting with JavaScript
 1. The only thing in the Dev Panel should be an onReady function:
