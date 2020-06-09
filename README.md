@@ -18,21 +18,22 @@ While Wix offers a variety of interactive elements for building a site, many sit
 
 ## Usage
 ### Enabling Dev Mode
-![Click "Turn on Dev Mode" under "Dev Mode" in the Wix toolbar](https://github.com/TSprech/Wix-Website/blob/README/Graphics/EnablingDevMode.png)
+![Click "Turn on Dev Mode" under "Dev Mode" in the Wix toolbar](Graphics/EnablingDevMode.png)
 
-![The dev mode "Code" panel, located at the bottom of the page, is where code for each webpage will go](https://github.com/TSprech/Wix-Website/blob/README/Graphics/DevModeFlyout.png)
+![The dev mode "Code" panel, located at the bottom of the page, is where code for each webpage will go](Graphics/DevModePanel.png)
 
 If the code panel is not shown, click "Open" in the bottom right as shown.
 
-![The dev mode "Code" panel is not shown, click "Open" in the far right corner](https://github.com/TSprech/Wix-Website/blob/README/Graphics/DevModePanel.png)
+![The dev mode "Code" panel is not shown, click "Open" in the far right corner](Graphics/DevModePanel.png)
 
 ### Adding Events for Wix to Recognize
 Wix has a property panel which allows for the attachment of events to function names. It is important to set each property up correctly otherwise the elements will not work. The following images show how to properly set it up.
 
-<p><img src="https://github.com/TSprech/Wix-Website/blob/README/Graphics/EnablingPropertiesPanel.png" alt="Ensure the Property Panel is enabled under Tools" width="346" height="330"></p>
-<p><img src="https://github.com/TSprech/Wix-Website/blob/README/Graphics/onChangePlus.png" alt="In the Properties Panel, hover over an option and click the + sign next to it" width="166" height="317"></p>
-<p><img src="https://github.com/TSprech/Wix-Website/blob/README/Graphics/Delete_1.png" alt="Go to the end of the selection and delete the _1 at the end of it" width="166" height="317"></p>
-<p><img src="https://github.com/TSprech/Wix-Website/blob/README/Graphics/FinalResult.png" alt="In the end there should be no _1 at the end" width="166" height="317"></p>
+![Ensure the Property Panel is enabled under Tools](Graphics/EnablingPropertiesPanel.png)
+
+![In the Properties Panel, hover over an option and click the + sign next to it](Graphics/onChangePlus.png)
+![Go to the end of the selection and delete the _1 at the end of it](Graphics/Delete_1.png)
+![In the end there should be no _1 at the end](Graphics/FinalResult.png)
 
 ### Implementing Classes // For Those Just Starting with JavaScript
 1. The only thing in the Dev Panel should be an onReady function:
@@ -124,14 +125,14 @@ The Radio Button Switch Class allows a modifier switch to be utilized with the R
 - [Slideshow](https://www.wix.com/corvid/reference/$w.Slideshow.html)
 - [Slider](https://www.wix.com/corvid/reference/$w.Slider.html)
 
-
+The Slider Class is meant to allow users to view multiple forms or iterations of something without needing to click through multiple slides or buttons. It works best once the images are cached in the browser, then the images can be quickly scrubbed through.
 
 ## HTML
 Syntax color highlighting is enabled via [Highlight.js](https://highlightjs.org/)
 
 Wix requires a hosted form of Highlight.js and more info can be found at the [Github](https://github.com/highlightjs/highlight.js)
 
-All HTML code required for highlighting can be found in the 
+All HTML code required for highlighting can be found in the Highlight_JS folder
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
