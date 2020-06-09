@@ -1,0 +1,136 @@
+<!-- Styles and specific code libraries can be found at https://cdnjs.com/libraries/highlight.js/ -->
+
+<!-- To put in a different style (Demoed here - https://highlightjs.org/static/demo/ ) change the link after 'href=' to one copied from CDN site in previous comment -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/lightfair.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+
+<!-- To put in a different code language (https://highlightjs.org/download/) change the link after 'src=' to one copied from CDN site in first comment -->
+<script charset="UTF-8"
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/javascript.min.js"></script>
+
+<!--Don't touch the script below-->
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<!-- Change the word after 'class=' to the corresponding one on https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html -->
+<pre>
+<code class="javascript">
+class Radio_Switch_Slideshow {
+	constructor(slideshow_name, radio_button_group_name, switch_name, debug, initialization_slide, initialization_radio, initialization_switch) {
+		this._slideshow_id = &quot;#&quot; + $w(slideshow_name).id;
+		this._radio_buttons_id = &quot;#&quot; + $w(radio_button_group_name).id;
+		this._switch_id = &quot;#&quot; + $w(switch_name).id;
+        this._debug_bool = debug;
+        
+        if (this._debug_bool) { console.log(this._slideshow_id + &quot; has an initial slide value of &quot; + initialization_slide + &quot; and the radio buttons modifier &quot; + this._radio_buttons_id + &quot; which has an initial value of &quot; + initialization_radio + &quot; with a switch modifier &quot; + this._switch_id + &quot;which has an initial value of &quot; + initialization_switch + &quot;\n\n&quot;); }
+
+		this._current_radio_value = initialization_radio;
+		this._current_switch_value = initialization_switch;
+
+		this._switch_slide(initialization_slide);
+		this._set_radio_position(initialization_radio);
+		this._set_switch_position(initialization_switch);
+	}
+
+	_switch_slide(_new_slide_value) {
+        if (this._debug_bool) { console.log(this._slideshow_id + &quot; had a value of &quot; + $w(this._slideshow_id).currentIndex + &quot; which changed to &quot; + _new_slide_value + &quot;\n&quot;); }
+
+		$w(this._slideshow_id).changeSlide(_new_slide_value);
+	}
+
+	update_current_radio_value() {
+		this._current_radio_value = $w(this._radio_buttons_id).value;
+		this._current_radio_value = parseInt(this._current_radio_value, 10);
+
+		if (this._current_switch_value) {
+			this._current_radio_value += 4;
+		}
+
+		//Update current slide to new slide
+		this._switch_slide(this._current_radio_value);
+	}
+
+	update_current_switch_position() {
+		if ($w(this._switch_id).checked) {
+			this._change_switch_position(true, &#39;+&#39;);
+		} else {
+			this._change_switch_position(false, &#39;-&#39;);
+		}
+	}
+
+	_change_switch_position(_new_boolean, _add_subtract) {
+		if (this._debug_bool) { console.log(this._switch_id + &quot; had a value of &quot; + this._current_switch_value + &quot; which changed to &quot; + _new_boolean + &quot;\n&quot;); }
+		
+		this._current_switch_value = _new_boolean;
+		if (_add_subtract === &#39;+&#39;) {
+			this._current_radio_value += 4;
+		} else {
+			this._current_radio_value -= 4;
+		}
+		this._current_radio_value = parseInt(this._current_radio_value, 10);
+        this._switch_slide(this._current_radio_value);
+	}
+
+	_set_radio_position(_set_value) {
+		$w(this._radio_buttons_id).value = _set_value;
+	}
+
+	_set_switch_position(_set_boolean) {
+		$w(this._switch_id).checked = _set_boolean;
+	}
+
+	get_current_radio_value() {
+		return this._current_radio_value;
+	}
+
+	get_current_switch_value() {
+		if (this._current_switch_value) {
+			return &quot;true&quot;;
+		} else {
+			return &quot;false&quot;;
+		}
+	}
+
+	get_radio_buttons_id() {
+		return this._radio_buttons_id;
+	}
+
+	get_current_switch_id() {
+		return this._switch_id;
+	}
+
+	get_slideshow_id() {
+		return this._slideshow_id;
+	}
+}
+
+//Place object variables here
+var example_variable_name_here; //Name your radio buttons controlled slideshow object variable here
+
+//Construct objects here
+$w.onReady(function () {
+    /*Change the following parameters to suite your needs
+    example_variable_name_here - must match your object variable name declared above
+    &quot;#slideshowName&quot; - (string) replace slideshowName with the ID of the slideshow that will be controlled
+	&quot;#radioButtonsName&quot; - (string) replace radioButtonsName with the ID of the radio buttons that will control the slideshow
+	&quot;#switchName&quot; - (string) replace switchName with the ID of the switch modifier
+    debugging - (boolean) toggles debugging output to the console
+    initial_slide_number - (number) slide number that the slideshow will be set to when initialized
+	initial_radio_buttons_value - (number) value that the radio buttons will be set to when initialized
+	initial_switch_value - (boolean) sets the switch to a default on or off position*/
+
+    //New radio buttons controlled slideshow
+    example_variable_name_here = new Radio_Switch_Slideshow(&quot;#slideshowName&quot;, &quot;#radioButtonsName&quot;, &quot;#switchName&quot;, debugging, initial_slide_number, initial_radio_buttons_value, initial_switch_value);
+});
+
+//Update changes to the state of inputs here
+export function radioButtonsName_change(event) { //Change &quot;radioButtonsName&quot; to the name of your radio buttons
+    example_variable_name_here.update_current_radio_value(); //Change &quot;example_variable_name_here&quot; to match your object variable declared above
+}
+
+export function switchName_change(event) { //Change &quot;switchName&quot; to the name of your switch
+    example_variable_name_here.update_current_switch_position(); //Change &quot;example_variable_name_here&quot; to match your object variable declared above
+}
+</code>
+</pre>

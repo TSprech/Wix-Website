@@ -1,0 +1,86 @@
+<!-- Styles and specific code libraries can be found at https://cdnjs.com/libraries/highlight.js/ -->
+
+<!-- To put in a different style (Demoed here - https://highlightjs.org/static/demo/ ) change the link after 'href=' to one copied from CDN site in previous comment -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/styles/lightfair.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+
+<!-- To put in a different code language (https://highlightjs.org/download/) change the link after 'src=' to one copied from CDN site in first comment -->
+<script charset="UTF-8"
+    src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.10/languages/javascript.min.js"></script>
+
+<!--Don't touch the script below-->
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<!-- Change the word after 'class=' to the corresponding one on https://highlightjs.readthedocs.io/en/latest/css-classes-reference.html -->
+<pre>
+<code class="javascript">
+class Radio_Slideshow {
+    constructor(slideshow_name, radio_buttons_name, debug, initialization_slide, initialization_radio) {
+        this._slideshow_id = &quot;#&quot; + $w(slideshow_name).id;
+        this._radio_buttons_id = &quot;#&quot; + $w(radio_buttons_name).id;
+        this._debug_bool = debug;
+
+        if (this._debug_bool) { console.log(this._slideshow_id + &quot; has an initial slide value of &quot; + initialization_slide + &quot; and the radio buttons modifier &quot; + this._radio_buttons_id + &quot; which has an initial value of &quot; + initialization_radio + &quot;\n\n&quot;); }
+
+        this._current_radio_value = initialization_radio;
+
+        this._switch_slide(initialization_slide)
+        this._set_radio_position(initialization_radio);
+    }
+
+    _switch_slide(_new_slide_value) {
+        if (this._debug_bool) { console.log(this._slideshow_id + &quot; had a value of &quot; + $w(this._slideshow_id).currentIndex + &quot; which changed to &quot; + _new_slide_value + &quot;\n&quot;); }
+
+        $w(this._slideshow_id).changeSlide(_new_slide_value);
+    }
+
+    update_current_radio_value() {
+        this._current_radio_value = $w(this._radio_buttons_id).value;
+        this._current_radio_value = parseInt(this._current_radio_value, 10);
+
+        //Update current slide to new slide
+        this._switch_slide(this._current_radio_value);
+    }
+
+    _set_radio_position(_set_value) {
+        $w(this._radio_buttons_id).value = _set_value;
+    }
+
+    get_current_radio_value() {
+        return this._current_radio_value;
+    }
+
+    get_radio_buttons_id() {
+        return this._radio_buttons_id;
+    }
+
+    get_slideshow_id() {
+        return this._slideshow_id;
+    }
+}
+
+//Place object variables here
+var example_variable_name_here; //Name your radio buttons controlled slideshow object variable here
+
+//Construct objects here
+$w.onReady(function () {
+    /*Change the following parameters to suite your needs
+    example_variable_name_here - must match your object variable name declared above
+    &quot;#slideshowName&quot; - (string) replace slideshowName with the ID of the slideshow that will be controlled
+    &quot;#radioButtonsName&quot; - (string) replace radioButtonsName with the ID of the radio buttons that will control the slideshow
+    debugging - (true/false) boolean that toggles debugging output to the console
+    initial_slide_number - (number) slide number that the slideshow will be set to when initialized
+    initial_radio_buttons_value - (number) value that the radio buttons will be set to when initialized*/
+
+    //New radio buttons controlled slideshow
+    example_variable_name_here = new Radio_Slideshow(&quot;#slideshowName&quot;, &quot;#radioButtonsName&quot;, debugging, initial_slide_number, initial_radio_buttons_value);
+});
+
+//Update changes to the state of inputs here
+export function radioButtonsName_change(event) { //Change &quot;radioButtonsName&quot; to the name of your radio buttons
+    example_variable_name_here.update_current_radio_value(); //Change &quot;example_variable_name_here&quot; to match your object variable declared above
+}
+</code>
+</pre>
