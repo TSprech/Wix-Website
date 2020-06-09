@@ -9,8 +9,12 @@ class Radio_Switch_Slideshow {
 		this._number_of_slides = parseInt(this._slides.length, 10);
 
 		this._radio_buttons_options = $w(this._radio_buttons_id).options;
-		for (lcv; lcv < this._number_of_slides / 2; lcv++) {
-			this._radio_buttons_options[lcv].value = lcv;
+		for (this._lcv = 0; this._lcv < this._number_of_slides / 2; this._lcv++) {
+			this._radio_buttons_options[this._lcv].value = this._lcv;
+		}
+
+		for (this._lcv = 0; this._lcv < this._number_of_slides / 2; this._lcv++) {
+			console.log(this._radio_buttons_options[this._lcv].value);
 		}
 
 		if (this._debug_bool) { console.log(this._slideshow_id + " has an initial slide value of " + initialization_slide + " and has " + this._number_of_slides + " slides," + " and the radio buttons modifier " + this._radio_buttons_id + " which has an initial value of " + initialization_radio + " with a switch modifier " + this._switch_id + "which has an initial value of " + initialization_switch + "\n\n"); }
@@ -126,12 +130,3 @@ export function radioButtonsName_change(event) { //Change "radioButtonsName" to 
 export function switchName_change(event) { //Change "switchName" to the name of your switch
 	example_variable_name_here.update_current_switch_position(); //Change "example_variable_name_here" to match your object variable declared above
 }
-
-
-
-let radioOptions = $w("#radioSwitchSlideshowRadio").options;
-
-let firstValue = radioOptions[0].value;   // "first_value"
-console.log(firstValue);
-firstValue = radioOptions[1].value;   // "first_value"
-console.log(firstValue);
